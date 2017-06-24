@@ -76,6 +76,8 @@ Custom property | Description | Default
     </style>
     <template is="dom-if" if="{{items.length}}" on-dom-change="_renderList">
       <paper-listbox selected="{{selected}}">
+        <template is="dom-repeat" items="{{items}}">
+        </template>
       </paper-listbox>
     </template>
     <template is="dom-if" if="{{!items.length}}">
@@ -126,31 +128,26 @@ Custom property | Description | Default
       },
 
       _renderList: function () {
-        this.selected = undefined;
         var template = this.queryEffectiveChildren('template');
-        if (template) {
-          var list = this.$$('paper-listbox');
 
-          if (list) {
-            list = Polymer.dom(list);
-            this.dataHost = this;
-            //this.templatize(template);
-            this._emptyList();
+        this.selected = undefined;
+        this._instance = this._instance || this.querySelector('paper-listbox');
+        this._repeater = this._repeater || this.querySelector('template[is="dom-repeat"]');
 
-            var repeat = document.createElement('template', 'dom-repeat');
-            list.appendChild(repeat);
-            repeat.templatize(template);
-            repeat.items = this.items;
-          }
+        if (this._instance && this._repeater && template) {
+          this._repeater.templatize(template);
+          this._repeater.items = this.items;
         }
       },
 
       _emptyList: function () {
-        var list = Polymer.dom(this.$$('paper-listbox'));
-        var children = list.children;
+        var list = this._instance;
+        var children = this.querySelectorAll('paper-item');
         //Clear the list before rendering
-        for (var i = 0; i < children.length; i++) {
-          list.removeChild(children[i]);
+        if (children && children.length > 0) {
+          for (var i = 0; i < children.length; i++) {
+            list.removeChild(children[i]);
+          }
         }
       },
 
