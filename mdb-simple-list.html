@@ -140,17 +140,6 @@ Custom property | Description | Default
         }
       },
 
-      _emptyList: function () {
-        var list = this._instance;
-        var children = this.querySelectorAll('paper-item');
-        //Clear the list before rendering
-        if (children && children.length > 0) {
-          for (var i = 0; i < children.length; i++) {
-            list.removeChild(children[i]);
-          }
-        }
-      },
-
       _selectedChanged: function (value) {
         this.selectedItem = typeof value === typeof 0 ? this.items[value] : undefined;
       }
