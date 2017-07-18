@@ -34,6 +34,7 @@ Custom property | Description | Default
           height: 30px;
           padding-top: 5px;
           padding-bottom: 5px;
+          color: var(--mdb-primary-text-dark, #000);
           @apply(--mdb-list-item);
         }
         --paper-icon-item: {
@@ -42,6 +43,7 @@ Custom property | Description | Default
           height: 30px;
           padding-top: 5px;
           padding-bottom: 5px;
+          color: var(--mdb-primary-text-dark, #000);
           @apply(--mdb-list-item);
         }
         --paper-item-focused-before: {
@@ -51,13 +53,13 @@ Custom property | Description | Default
           @apply(--mdb-list-item-focused);
         }
         --paper-item-selected-before: {
-          color: #fff;
-          background-color: #5caadb;
+          background-color: var(--mdb-accent-color-highlight, #5da9dd);
+          color: var(--mdb-primary-text-light, #fff);
           @apply(--mdb-list-item-selected);
         }
         --paper-item-selected: {
-          color: #fff;
-          background-color: #5caadb;
+          background-color: var(--mdb-accent-color-highlight, #5da9dd);
+          color: var(--mdb-primary-text-light, #fff);
           @apply(--mdb-list-item-selected);
         }
         --paper-item-selected-weight:var(--mdb-list-item-font-weight, 200);
@@ -71,7 +73,8 @@ Custom property | Description | Default
       }
 
        :host .empty-message {
-        @apply(--mdb-simple-list-empty)
+        color: var(--mdb-primary-text-dark, #000);
+        @apply(--mdb-simple-list-empty);
       }
     </style>
     <template is="dom-if" if="{{items.length}}" on-dom-change="_renderList">
