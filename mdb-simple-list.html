@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-styles/typography.html">
 
 <!--
 `mdb-simple-list`
@@ -63,6 +64,7 @@ Custom property | Description | Default
           @apply(--mdb-list-item-selected);
         }
         --paper-item-selected-weight:var(--mdb-list-item-font-weight, 200);
+        @apply(--paper-font-common-base);
       }
 
        :host paper-listbox {
