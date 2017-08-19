@@ -15,11 +15,11 @@
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   },
   "homepage": "https://github.com/makedatabetter-dev/mdb-simple-list",
-  "_release": "153ab0f583",
+  "_release": "d16ecb7dc9",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "153ab0f583e4fa28e6851b7f2561ff8662d5f3c2"
+    "commit": "d16ecb7dc9dbe9302e240b5aaa1a3c59b46ae4fd"
   },
   "_source": "https://github.com/makedatabetter-dev/mdb-simple-list.git",
   "_target": "master",
