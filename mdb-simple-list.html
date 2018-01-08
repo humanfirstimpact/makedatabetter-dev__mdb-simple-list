@@ -26,7 +26,7 @@ Custom property | Description | Default
 <dom-module id="mdb-simple-list">
   <template>
     <style>
-       :host {
+      :host {
         position: relative;
         display: block;
         --paper-item: {
@@ -48,9 +48,11 @@ Custom property | Description | Default
           @apply(--mdb-list-item);
         }
         --paper-item-focused-before: {
+          background-color: transparent;
           @apply(--mdb-list-item-focused);
         }
         --paper-item-focused: {
+          background-color: transparent;
           @apply(--mdb-list-item-focused);
         }
         --paper-item-selected-before: {
@@ -59,7 +61,7 @@ Custom property | Description | Default
           @apply(--mdb-list-item-selected);
         }
         --paper-item-selected: {
-          background-color: var(--mdb-accent-color-highlight, #5da9dd);
+          background-color: var(--mdb-accent-color-highlight, #5da9dd)!important;
           color: var(--mdb-primary-text-light, #fff);
           @apply(--mdb-list-item-selected);
         }
@@ -67,14 +69,14 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
 
-       :host paper-listbox {
+      :host paper-listbox {
         outline: 0;
         padding: 0;
         color: #a1a2a4;
         @apply(--mdb-simple-list)
       }
 
-       :host .empty-message {
+      :host .empty-message {
         color: var(--mdb-primary-text-dark, #000);
         @apply(--mdb-simple-list-empty);
       }
