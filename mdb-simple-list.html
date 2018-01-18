@@ -25,8 +25,8 @@ Custom property | Description | Default
 
 <dom-module id="mdb-simple-list">
   <template>
-    <style>
-      :host {
+    <style include="shared-styles">
+       :host {
         position: relative;
         display: block;
         --paper-item: {
@@ -56,12 +56,12 @@ Custom property | Description | Default
           @apply(--mdb-list-item-focused);
         }
         --paper-item-selected-before: {
-          background-color: var(--mdb-accent-color-highlight, #5da9dd);
+          background-color: transparent;
           color: var(--mdb-primary-text-light, #fff);
           @apply(--mdb-list-item-selected);
         }
         --paper-item-selected: {
-          background-color: var(--mdb-accent-color-highlight, #5da9dd)!important;
+          background-color: transparent!important;
           color: var(--mdb-primary-text-light, #fff);
           @apply(--mdb-list-item-selected);
         }
@@ -69,20 +69,20 @@ Custom property | Description | Default
         @apply(--paper-font-common-base);
       }
 
-      :host paper-listbox {
+       :host paper-listbox {
         outline: 0;
         padding: 0;
         color: #a1a2a4;
         @apply(--mdb-simple-list)
       }
 
-      :host .empty-message {
+       :host .empty-message {
         color: var(--mdb-primary-text-dark, #000);
         @apply(--mdb-simple-list-empty);
       }
     </style>
     <template is="dom-if" if="{{items.length}}" on-dom-change="_renderList">
-      <paper-listbox selected="{{selected}}">
+      <paper-listbox selected="{{selected}}" class="style-scroll">
         <template is="dom-repeat" items="{{items}}">
         </template>
       </paper-listbox>
